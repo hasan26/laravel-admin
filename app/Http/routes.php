@@ -34,3 +34,5 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('menus', 'menuController');
+
+Route::resource('orders', 'OrderController');
