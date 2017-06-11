@@ -26,6 +26,33 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
     Route::group(['prefix' => 'v1'], function () {
         require config('infyom.laravel_generator.path.api_routes');
     });
+
+    Route::post('login', function (\Illuminate\Http\Request $request) {
+
+        if ($request->isJson()) {
+            $data = $request->json()->all();
+        } else {
+            $data = $request->all();
+        }
+
+        if( $request->json()->get('username') == "employed"){
+            $response = array('status' => true, 'message'=>'succes');
+        }else{
+            $response = array('status' => false, 'message'=>'failed');
+        }
+
+        return response()
+            ->json($response);
+
+    });
+    Route::get('menu','MenuApiController@index');
+    Route::get('menu/food','MenuApiController@food');
+    Route::get('menu/drink','MenuApiController@drink');
+    Route::get('menu/{id}', [
+        'uses' => 'MenuApiController@find'
+    ]);
+    Route::post('order','OrderApiController@newOrder');
+
 });
 
 

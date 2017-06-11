@@ -25,7 +25,7 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
-                <b>InfyOm</b>
+                <b>Cafe Teluk Penyu</b>
             </a>
 
             <!-- Header Navbar -->
